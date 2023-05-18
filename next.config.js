@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  // 활성화 시 콘솔 두번 찍힘
+  // reactStrictMode: true,
 }
 
 module.exports = nextConfig
