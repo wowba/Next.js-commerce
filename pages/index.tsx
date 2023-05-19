@@ -12,11 +12,22 @@ export default function Home() {
     }
   }
 
-  const [projects, setProjects] = useState<{ id: string; properties: { id: string; }[]}[]>([])
+  // Notion DB
+  // const [products, setProducts] = useState<{ id: string; properties: { id: string; }[]}[]>([])
+  // useEffect(() => {
+  //   fetch('/api/get-items').then(res => res.json()).then(
+  //     data => {
+  //       setProducts(data.items)
+  //     }
+  //   )
+  // }, [])
+
+  // prisma, planetscale 
+  const [products, setProducts] = useState<{ id: string; name: string }[]>([])
   useEffect(() => {
-    fetch('/api/get-items').then(res => res.json()).then(
+    fetch('/api/get-products').then(res => res.json()).then(
       data => {
-        setProjects(data.items)
+        setProducts(data.items)
       }
     )
   }, [])
@@ -25,10 +36,11 @@ export default function Home() {
     <main>
       <button onClick={handleClick}>add something</button>
       <input ref={inputRef} type='text' placeholder='name' />
- 
+
       <div>
-        <p>List</p>
-        {projects && projects.map((item, idx: number) => {
+        <p>Products List</p>
+        {/* Notion DB */}
+        {/* {products && products.map((item, idx: number) => {
           return (
             <div key={idx}>
               {JSON.stringify(item)}
@@ -45,7 +57,11 @@ export default function Home() {
               <br />
             </div>
           )
-        })}
+        })} */}
+
+        {/* Planestscale DB */}
+        {products &&
+          products.map((item) => <div key={item.id}>{item.name}</div>)}
       </div>
 
     </main>
