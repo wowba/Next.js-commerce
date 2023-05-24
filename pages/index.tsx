@@ -23,7 +23,7 @@ export default function Home() {
   // }, [])
 
   // prisma, planetscale 
-  const [products, setProducts] = useState<{ id: string; name: string }[]>([])
+  const [products, setProducts] = useState<{ id: string; name: string; createdAt: string }[]>([])
   useEffect(() => {
     fetch('/api/get-products').then(res => res.json()).then(
       data => {
@@ -61,7 +61,7 @@ export default function Home() {
 
         {/* Planestscale DB */}
         {products &&
-          products.map((item) => <div key={item.id}>{item.name}</div>)}
+          products.map((item) => <div key={item.id}>{item.name}<p>{item.createdAt}</p></div>)}
       </div>
 
     </main>
