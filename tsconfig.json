@@ -20,6 +20,8 @@
       "@components/*": ["components/*"],
       "@styles/*": ["styles/*"]
     },
+    // emotion 사용시 추가
+    "types": ["@emotion/react/types/css-prop"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
